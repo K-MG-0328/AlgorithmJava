@@ -4,7 +4,6 @@ import java.util.Map;
 
 public class 가장많이받은선물 {
 
-    // 다음달에 가장 많은 선물을 받는 친구가 받을 선물의 수를 return 하도록 solution 함수를 완성해 주세요.
     public static int solution(String[] friends, String[] gifts) {
         Map<String, Map<String, Integer>> recodeMap = new HashMap<>();
         Map<String, Integer> giftScore = new HashMap<>();
@@ -47,8 +46,8 @@ public class 가장많이받은선물 {
 
     public static void main(String[] args) {
 
-        String[] friends = new String[] {"A", "B", "C", "D", "E", "F"};
-        String[] gifts = new String[] {"A B", "B C", "C D", "D A", "E A", "F B"};
+        String[] friends = new String[] {"joy", "brad", "alessandro", "conan", "david"};
+        String[] gifts = new String[] {"alessandro brad", "alessandro joy", "alessandro conan", "david alessandro", "alessandro david"};
         System.out.println(solution(friends, gifts));
     }
 }
