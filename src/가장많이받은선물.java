@@ -6,7 +6,6 @@ public class 가장많이받은선물 {
 
     // 다음달에 가장 많은 선물을 받는 친구가 받을 선물의 수를 return 하도록 solution 함수를 완성해 주세요.
     public static int solution(String[] friends, String[] gifts) {
-        int answer = 0;
         Map<String, Map<String, Integer>> recodeMap = new HashMap<>();
         Map<String, Integer> giftScore = new HashMap<>();
         Map<String, Integer> nextMonthGifts = new HashMap<>();
