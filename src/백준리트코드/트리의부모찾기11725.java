@@ -1,4 +1,4 @@
-package 백준;
+package 백준리트코드;
 
 import java.io.*;
 import java.util.ArrayList;

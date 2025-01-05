@@ -1,11 +1,11 @@
-package 백준;
+package 백준리트코드;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
-public class 깊이우선탐색24480 {
+public class 깊이우선탐색24479 {
     static final int MAX = 1000000 + 10;
     static int N, M, R;
     static ArrayList<Integer>[] graph;
@@ -54,7 +54,7 @@ public class 깊이우선탐색24480 {
         }
 
         for(int i=1; i<=N; i++){
-            Collections.sort(graph[i], Collections.reverseOrder());
+            Collections.sort(graph[i]);
         }
 
         dfs(R);
@@ -65,6 +65,5 @@ public class 깊이우선탐색24480 {
 
         br.close();
         bw.close();
-
     }
 }
