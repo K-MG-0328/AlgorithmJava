@@ -31,6 +31,9 @@
 
 ### 배열
 
+#### Arrays.get(int index)
+📌 배열의 특정 인덱스의 요소 가져오기
+
 #### Arrays.sort(int[] arr)
 📌 배열을 오름차순으로 정렬합니다.
 
