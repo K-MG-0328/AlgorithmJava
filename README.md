@@ -76,7 +76,7 @@
 #### Integer[] array = {1, 2, 3};
 📌 객체 배열
 #### List<Integer> list = Arrays.asList(array) 
-📌 배열을 고정된 리스트를 반환합니다. Arrays.asList(array)를 사용하면 배열의 각 요소가 리스트의 개별 요소로 변환됩니다. //고정된이 뭔말이지?
+📌 배열을 고정된 리스트를 반환합니다. Arrays.asList(array)를 사용하면 배열의 각 요소가 리스트의 개별 요소로 변환됩니다.
 #### List<Integer> list = new ArrayList<>(Arrays.asList(array))
 📌 배열을 수정 가능한 List로 생성해서 반환합니다.
 
