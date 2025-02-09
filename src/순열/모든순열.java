@@ -1,6 +1,10 @@
 package 순열;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class 모든순열 {
     /*
@@ -13,7 +17,10 @@ public class 모든순열 {
 
     public static void generatePermutation(int[] arr, boolean[] used, ArrayList<Integer> currentPermutation) {
         if(!currentPermutation.isEmpty() && arr.length - 1 == currentPermutation.size()) {
-            System.out.println(currentPermutation);
+            for (int i = 0; i < currentPermutation.size(); i++) {
+                System.out.print(currentPermutation.get(i) + " ") ;
+            }
+            System.out.println();
             return;
         }
 
@@ -39,7 +46,10 @@ public class 모든순열 {
         generatePermutation(arr, used, currentPermutation);
     }
 
-    public static void main(String[] args) {
-        solution(3);
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer stringTokenizer = new StringTokenizer(bufferedReader.readLine());
+        int n = Integer.parseInt(stringTokenizer.nextToken());
+        solution(n);
     }
 }

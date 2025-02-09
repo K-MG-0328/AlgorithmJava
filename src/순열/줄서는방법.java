@@ -1,38 +1,46 @@
 package 순열;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.StringTokenizer;
 
 public class 줄서는방법 {
-    public static int n, k;
-    public static boolean[] used;
-    public static ArrayList<ArrayList<Integer>> result;
-    public static ArrayList<Integer> currentPermutation;
 
-    public static void solution(){
-        if(currentPermutation.size() == n){
-            System.out.println(currentPermutation);
-            result.add(new ArrayList<>(currentPermutation)); // 주의  result.add(currentPermutation); 이렇게 할 경우 객체가 참조되니 주의
-            return;
+    public static int[] solution(int n, long k) {
+        long num = 1;
+        List<Integer> list = new ArrayList<>();
+
+        for(int i = 1 ; i<= n ; i++){
+            list.add(i);
+            num*=i;
         }
 
-        for(int i=1; i<=n; i++){
-            if(!used[i]){
-                used[i] = true;
-                currentPermutation.add(i);
-                solution();
-                used[i] = false;
-                currentPermutation.remove(currentPermutation.size()-1);
-            }
+        int[] ans = new int[n];
+        int idx = 0;
+        k--;
+
+        while (idx < n){
+            num = num / (n - idx);
+            ans[idx++] = list.remove((int)(k/num));
+            k= k % num;
         }
+
+        return ans;
     }
 
-    public static void main(String[] args) {
-        n = 3;
-        k = 5;
-        used = new boolean[n+1];
-        result = new ArrayList<>();
-        currentPermutation = new ArrayList<>();
-        solution();
-        System.out.println(result.get(k-1));
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int n = Integer.parseInt(st.nextToken());
+        long k = Long.parseLong(st.nextToken());
+
+        int[] result = solution(n, k);
+        for(int val : result){
+            System.out.print(val + " ");
+        }
     }
 }

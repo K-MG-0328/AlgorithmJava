@@ -1,6 +1,10 @@
 package 순열;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class N과M {
     public static int N, M;
@@ -10,7 +14,10 @@ public class N과M {
 
     public static void solution() {
         if (currentPermutation.size() == M) {
-            System.out.println(currentPermutation);
+            for (int i = 0; i < currentPermutation.size(); i++) {
+                System.out.print(currentPermutation.get(i) + " ");
+            }
+            System.out.println();
             return;
         }
 
@@ -25,9 +32,11 @@ public class N과M {
         }
     }
 
-    public static void main(String[] args) {
-        N = 4;
-        M = 2;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
         arr = new int[N+1];
         used = new boolean[N+1];
         currentPermutation = new ArrayList<>();
