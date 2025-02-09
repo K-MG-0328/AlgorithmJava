@@ -31,6 +31,9 @@
 
 ### 배열
 
+#### Arrays.get(int index)
+📌 배열의 특정 인덱스의 요소 가져오기
+
 #### Arrays.sort(int[] arr)
 📌 배열을 오름차순으로 정렬합니다.
 
@@ -94,22 +97,48 @@ ex) Math.abs(-5); // → 5
 #### Math.round(double a)
 📌 주어진 숫자를 반올림 처리합니다.
 
-#### 팩토리얼 계산 // 이거 바텀업 방식을 사용하라고 했던 것 같은데?
+### 팩토리얼 계산 
+
+#### TopDown 방식
     public static long factorial(int n) {
         if (n == 0 || n == 1) return 1;
         return n * factorial(n - 1);
     }
     factorial(5);
+#### BottomUp 방식
+    public static long factorial(int n) {
+        for(int i = 1; i <= n; i++) {
+            answer = answer * i;
+        }
+        return answer;
+    }
+    factorial(5);
 
-#### 최대공약수(GCD)를 구하는 메서드
+### 최대공약수(GCD)를 구하는 메서드
+    public static int gcd(int a, int b) {
+        // 12 18
+        // 18 12
+        // 12 6
+        // 6 0
+        return b == 0 ? a : gcd(b, a % b);
+    }
+    gcd(12, 18); // 6
+
+
+### 최소공배수(LCM)를 구하는 메서드
     public static int gcd(int a, int b) {
         return b == 0 ? a : gcd(b, a % b);
     }
-    gcd(12, 18);
-
-
-#### 최소공배수(LCM)를 구하는 메서드
+    
     public static int lcm(int a, int b) {
-        return a * (b / gcd(a, b));
+        return a * (b / gcd(a, b));  // 비교 수 중 작은수 * 최대공약수 = 최소공배수 
     }
-    lcm(12, 18);
+    lcm(12, 18); // 36
+
+### 순열 
+순열의 수 공식
+![image](https://github.com/user-attachments/assets/f4159caa-fee4-45d3-9002-f816e35d92e8)
+n 요소의 개수 
+r 선택하는 개수 
+
+
