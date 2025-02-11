@@ -22,8 +22,6 @@ public class 타겟넘버 {
     }
 
     public static int solution(int[] numbers, int target) {
-
-        //dp를 제외하고 완전탐색으로만 문제를 풀어보자. 완전탐색으로만 문제를 풀어도 2^20 = 10^6이라 할만해
         dfs(0, 0);
         return answer;
     }

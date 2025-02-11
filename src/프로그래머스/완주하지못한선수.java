@@ -5,22 +5,23 @@ import java.util.Map;
 
 public class 완주하지못한선수 {
     public static String solution(String[] participant, String[] completion) {
-
-        Map<String, Integer> map = new HashMap<>();
-        for(String s : completion) {
-            map.put(s, map.getOrDefault(s, 0) + 1);
-        }
         String answer = "";
-        for(String s : participant) {
-            if(map.containsKey(s)){
-                if(map.get(s) > 1){
-                    map.replace(s, map.get(s) - 1);
-                }else{
-                    map.remove(s);
-                }
-            }else{
-                answer = s;
-                break;
+
+        HashMap<String, Integer> participantMap = new HashMap<>();
+
+        //초기 세팅
+        for(String p : participant) {
+            participantMap.put(p, participantMap.containsKey(p) ? participantMap.get(p) + 1 : 1);
+        }
+
+        for(String c : completion){
+            participantMap.put(c, participantMap.get(c) - 1);
+        }
+
+        for(String key : participantMap.keySet()) {
+            int val = participantMap.get(key);
+            if(val > 0){
+                answer = key;
             }
         }
         return answer;

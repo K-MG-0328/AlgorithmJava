@@ -124,6 +124,38 @@ Java의 제네릭은 기본형(int, double, 등)을 직접 다룰 수 없으므�
 #### Collections.swap(list, i, j)
 📌 두 인덱스의 요소 교환
 
+### Map
+
+#### map.containsKey("apple")
+📌 존재하면 true, 없으면 false
+
+#### map.getOrDefault("banana", 0);
+맵에 key가 존재하면 그 값을, 존재하지 않으면 defaultValue 반환
+
+#### map.putIfAbsent("apple", 1);
+해당 key가 존재하지 않을 때만 (값이 null이 아닐 때만) (key, value)를 삽입
+
+#### map.replace("apple", 2, 3);
+기존 값이 2일 때만 3으로 교체 (replace(K key, V oldValue, V newValue) → oldValue가 일치하는 경우에만 교체)
+
+#### map.keySet()
+모든 키를 순회해야 할 때 keySet() 사용
+
+#### map.values()
+모든 값에 대해서만 처리해야 할 때 values()
+
+#### map.entrySet()
+(key, value) 쌍을 동시에 다뤄야 할 때 entrySet()
+
+        for (Map.Entry<String, Integer> e : map.entrySet()) {
+            System.out.println(e.getKey() + " -> " + e.getValue());
+        }
+
+#### Map 시간 복잡도
+	•	HashMap: 평균적으로 put, get, containsKey 등 주요 연산이 O(1)
+	•	TreeMap: 내부적으로 Red-Black Tree 구조, O(log n)
+	•	LinkedHashMap: 평균적으로 O(1), 삽입 순서를 유지하지만 해시 구조 사용
+
 ### Math
 
 #### Math.abs(int a)
